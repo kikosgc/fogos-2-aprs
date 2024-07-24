@@ -65,4 +65,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ---
 
+![Alt](https://repobeats.axiom.co/api/embed/fe4e35eb2e43113587ae076013fbf701910ee9b8.svg "Repobeats analytics image")
+
 Thank you for your interest in **fogos-2-aprs**! We hope this project contributes to improving fire response and public safety through the use of amateur radio and APRS technology.
