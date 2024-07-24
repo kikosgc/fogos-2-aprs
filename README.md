@@ -16,15 +16,15 @@
 - [Contributing](#contributing)
 - [License](#license)
 
-## 🚒🔥 Introduction
+## 🚒🔥 Introduction<a id='introduction'></a>
 
 Welcome to **fogos-2-aprs**, a project aimed at gating/forwarding rural fire data to the APRS service. This project collects fire data such as location and status from [Fogos.pt](https://github.com/FogosPT/fogospt) and forwards it to the APRS network, helping enhance situational awareness and emergency response.
 
-## ⚙️ How It Works
+## ⚙️ How It Works<a id='how-it-works'></a>
 
 The project utilizes the Fogos.pt API to obtain real-time information about rural fires. This information is then formatted and transmitted via the APRS network. APRS is a digital communication protocol used by amateur radio operators to exchange information such as position data, weather reports, and messages.
 
-## 🌐 What is APRS?
+## 🌐 What is APRS?<a id='what-is-aprs'></a>
 
 APRS, or Automatic Packet Reporting System, is an amateur radio-based system for real-time communication of information. It utilizes digital packet radio to transmit data, which can include:
 
@@ -35,15 +35,15 @@ APRS, or Automatic Packet Reporting System, is an amateur radio-based system for
 
 APRS provides a robust and reliable means of communication, particularly valuable in remote areas or during emergencies when traditional communication infrastructure may be unavailable.
 
-## 🦺️ Importance of Amateur Radio in Civil Protection
+## 🦺️ Importance of Amateur Radio in Civil Protection<a id='importance-of-amateur-radio-in-civil-protection'></a>
 
 Amateur radio operators play a critical role in civil protection and emergency response. Their ability to establish communication networks during disasters and their proficiency with radio technology make them invaluable assets in times of crisis. By integrating fire data with the APRS network, this project aims to leverage the skills and infrastructure of the amateur radio community to enhance public safety and response capabilities.
 
-## 🚀 Usage
+## 🚀 Usage<a id='usage'></a>
 
 Once the application is running, it will continuously fetch the latest fire data from Fogos.pt and transmit it to the APRS network. Ensure that your APRS equipment is set up and configured to receive the transmitted data.
 
-## 🤝 Contributing
+## 🤝 Contributing<a id='contributing'></a>
 
 We welcome contributions from the community! To contribute:
 
@@ -60,7 +60,7 @@ We welcome contributions from the community! To contribute:
 
 Please ensure that your code adheres to our coding standards and includes appropriate tests.
 
-## 📄 License
+## 📄 License<a id='license'></a>
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
