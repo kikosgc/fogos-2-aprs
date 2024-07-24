@@ -1,4 +1,5 @@
 # fogos-2-aprs
+<img src="https://i.postimg.cc/MHkJNQTS/fogos2aprs.png" width="50%" height="50%">
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub issues](https://img.shields.io/github/issues/kikosgc/fogos-2-aprs)](https://github.com/kikosgc/fogos-2-aprs/issues)
