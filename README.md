@@ -47,7 +47,7 @@ Once the application is running, it will continuously fetch the latest fire data
 
 We welcome contributions from the community! To contribute:
 
-1. Fork the repository.
+1. Fork the dev repository.
 2. Make your changes and commit them:
     ```bash
     git commit -m "Description of your changes"
@@ -59,6 +59,7 @@ We welcome contributions from the community! To contribute:
 4. Open a pull request on the original repository.
 
 Please ensure that your code adheres to our coding standards and includes appropriate tests.
+> Important: Only accepting PRs on the "dev" branch.
 
 ## 📄 License<a id='license'></a>
 
