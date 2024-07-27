@@ -22,11 +22,11 @@ def process_and_send_data(client, data):
     for incident in data:
         properties = incident["properties"]
         geometry = incident["geometry"]
-        callsign = properties["id"]
+        callsign = properties["OBJECTID"]
         lat = geometry["coordinates"][1]
         lon = geometry["coordinates"][0]
-        status = properties["status"]
-        comment = properties.get("meios", "")
+        status = properties["EstadoOcorrencia"]
+        comment = properties.get("Operacionais", "")
         symbol = get_symbol(status)
         
         client.send_packet(callsign, lat, lon, symbol, comment, status)
