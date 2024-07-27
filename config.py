@@ -2,7 +2,7 @@
 fogos-2-aprs
 Version: 1.2
 Date: 2024-07-27
-Description: Configuration file for APRS server credentials and Fogos.pt API settings.
+Description: Configuration file for APRS server credentials.
 """
 
 APRS_SERVERS = [
