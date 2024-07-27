@@ -18,11 +18,11 @@
 
 ## 🚒🔥 Introduction<a id='introduction'></a>
 
-Welcome to **fogos-2-aprs**, a project aimed at gating/forwarding rural fire data to the APRS service. This project collects fire data such as location and status from [Fogos.pt](https://github.com/FogosPT/fogospt) and forwards it to the APRS network, helping enhance situational awareness and emergency response.
+Welcome to **fogos-2-aprs**, a project aimed at gating/forwarding rural fire data to the APRS service. This project collects fire data such as location and status from [ANEPC](https://prociv.gov.pt/en/home/) and forwards it to the APRS network, helping enhance situational awareness and emergency response.
 
 ## ⚙️ How It Works<a id='how-it-works'></a>
 
-The project utilizes the Fogos.pt API to obtain real-time information about rural fires. This information is then formatted and transmitted via the APRS network. APRS is a digital communication protocol used by amateur radio operators to exchange information such as position data, weather reports, and messages.
+The project utilizes open data from ANEPC to obtain real-time information about rural fires. This information is then formatted and transmitted via the APRS network. APRS is a digital communication protocol used by amateur radio operators to exchange information such as position data, weather reports, and messages.
 
 ## 🌐 What is APRS?<a id='what-is-aprs'></a>
 
@@ -41,7 +41,7 @@ Amateur radio operators play a critical role in civil protection and emergency r
 
 ## 🚀 Usage<a id='usage'></a>
 
-Once the application is running, it will continuously fetch the latest fire data from Fogos.pt and transmit it to the APRS network. Ensure that your APRS equipment is set up and configured to receive the transmitted data.
+Once the application is running, it will continuously fetch the latest fire data from ANEPC and transmit it to the APRS network. Ensure that your APRS equipment is set up and configured to receive the transmitted data.
 
 ## 🤝 Contributing<a id='contributing'></a>
 
