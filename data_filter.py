@@ -1,13 +1,10 @@
 """
 fogos-2-aprs
-Version: 1.0
-Date: 2024-07-27
+Version: 1.2
+Date: 2024-07-29
 Description: Filters the incoming data from source URL.
 """
 
-def filter_mato_data(data):
+def filter_fire_data(data):
     filtered_features = [feature for feature in data['features'] if feature['properties']['Natureza'] == 'Mato']
-    return {
-        "type": "FeatureCollection",
-        "features": filtered_features
-    }
+    return filtered_features
