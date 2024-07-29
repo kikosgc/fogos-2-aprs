@@ -1,22 +1,17 @@
 """
 fogos-2-aprs
-Version: 2.0
-Date: 2024-07-27
+Version: 3.0
+Date: 2024-07-29
 Description: Main entry point for the fogos-2-aprs service.
 """
 
 import time
-from data_fetch import fetch_data
-from data_filter import filter_mato_data
-from aprs_client import APRSClient, get_symbol
+from aprs_client import APRSClient
+from data_processing import fetch_fire_data
+from data_filter import filter_fire_data
+from symbol_definitions import get_symbol
 
-DATA_URL = 'URL_TO_YOUR_JSON_DATA_SOURCE'
-CHECK_INTERVAL = 60  # Check interval in seconds
-
-def fetch_fire_data():
-    data = fetch_data(DATA_URL)
-    filtered_data = filter_mato_data(data)
-    return filtered_data['features']
+CHECK_INTERVAL = 120  # Check interval in seconds
 
 def process_and_send_data(client, data):
     for incident in data:
@@ -26,7 +21,7 @@ def process_and_send_data(client, data):
         lat = geometry["coordinates"][1]
         lon = geometry["coordinates"][0]
         status = properties["EstadoOcorrencia"]
-        comment = properties.get("Operacionais", "")
+        comment = properties.get("Operacionais") #A DD MORE IF NEEDED
         symbol = get_symbol(status)
         
         client.send_packet(callsign, lat, lon, symbol, comment, status)
@@ -40,7 +35,8 @@ def main():
     while True:
         try:
             data = fetch_fire_data()
-            process_and_send_data(client, data)
+            filtered_data = filter_fire_data(data)
+            process_and_send_data(client, filtered_data)
         except Exception as e:
             print(f"Error: {e}")
         
