@@ -21,7 +21,7 @@ def process_and_send_data(client, data):
         lat = geometry["coordinates"][1]
         lon = geometry["coordinates"][0]
         status = properties["EstadoOcorrencia"]
-        comment = properties.get("Operacionais") #A DD MORE IF NEEDED
+        comment = properties.get("Operacionais") # ADD MORE IF NEEDED
         symbol = get_symbol(status)
         
         client.send_packet(callsign, lat, lon, symbol, comment, status)
