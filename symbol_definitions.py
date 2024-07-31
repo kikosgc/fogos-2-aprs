@@ -6,7 +6,7 @@ Description: Symbol definitions for APRS packets based on incident status.
 """
 
 def get_symbol(status):
-    # Add more status-symbol mappings as needed -
+    # Add more status-symbol mappings as needed
     symbol_map = {
         "Despacho de 1º Alerta": "\c",
         "Chegada ao TO": "/f",

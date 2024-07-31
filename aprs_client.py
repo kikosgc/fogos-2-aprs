@@ -5,9 +5,9 @@ Date: 2024-07-29
 Description: Manages APRS connection and packet creation.
 """
 
+import logging
 import aprslib
 from config import APRS_CALLSIGN, APRS_PASSWORD, APRS_SERVERS
-from symbol_definitions import get_symbol
 
 class APRSClient:
     def __init__(self):
@@ -19,26 +19,28 @@ class APRSClient:
             try:
                 self.client.connect(server)
                 self.connected = True
+                logging.info(f"Connected to {server}")
                 return True
             except Exception as e:
-                print(f"Failed to connect to {server}: {e}")
+                logging.error(f"Failed to connect to {server}: {e}")
         return False
 
     def send_packet(self, callsign, lat, lon, symbol, comment, status_comment):
         if not self.connected:
-            print("Not connected to APRS server.")
+            logging.error("Not connected to APRS server.")
             return
 
-        packet = {
-            'from': APRS_CALLSIGN,
-            # ??? MSG ??? 'to': callsign,
-            'path': 'APRS',
-            'lat': lat,
-            'lng': lon,  # Note: aprslib uses 'lng' instead of 'lon'
-            'symbol': symbol,
-            'comment': f"{comment} {status_comment}"
-        }
+        # Construct the APRS packet using aprslib's expected format
+        info = f"{lat:.2f}/{lon:.2f}{symbol} {comment} {status_comment}"
+        packet = f"{APRS_CALLSIGN}>{callsign}: {info}"
+        
+        # Output a preview of the APRS packet
+        print(f"APRS Packet Preview: {packet}")
+
+        logging.info(f"Sending packet: {packet}")
         try:
+            # Use the correct method to send the packet
             self.client.sendall(packet)
+            logging.info(f"Packet sent: {packet}")
         except Exception as e:
-            print(f"Failed to send packet: {e}")
+            logging.error(f"Failed to send packet: {e}")
