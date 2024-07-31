@@ -2,7 +2,7 @@ import requests
 import time
 import logging
 
-API_URL = "URL HERE!!!"
+API_URL = "API URL HERE"
 
 def fetch_fire_data():
     max_retries = 5

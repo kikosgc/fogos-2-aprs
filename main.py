@@ -6,7 +6,7 @@ from data_processing import fetch_fire_data
 from data_filter import filter_fire_data
 from symbol_definitions import get_symbol
 
-CHECK_INTERVAL = 60  # Interval between checks, in seconds
+CHECK_INTERVAL = 300  # Interval between checks, in seconds
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s: %(message)s')
@@ -15,17 +15,19 @@ def process_and_send_data(client, data):
     for incident in data:
         properties = incident["properties"]
         geometry = incident["geometry"]
-        callsign = properties["OBJECTID"]
+        object_id = str(properties["OBJECTID"])
         lat = geometry["coordinates"][1]
         lon = geometry["coordinates"][0]
-        status = properties["EstadoOcorrencia"]
-        comment = properties.get("Operacionais", "")  # ADD MORE IF NEEDED
-        symbol = get_symbol(status)
-        
+        estado = properties["EstadoOcorrencia"]  # Customize as needed
+        operacionais = properties["Operacionais"]
+        mterrestres = properties["NumeroMeiosTerrestresEnvolvidos"]
+        maero = properties["NumeroMeiosAereosEnvolvidos"]
+
         try:
-            client.send_packet(callsign, lat, lon, symbol, comment, status)
+            client.send_packet(object_id, lat, lon, estado, operacionais, mterrestres, maero)
         except Exception as e:
-            logging.error(f"Failed to send packet for {callsign}: {e}")
+            logging.error(f"Failed to send packet for {object_id}: {e}")
+
 
 def main():
     client = APRSClient()
