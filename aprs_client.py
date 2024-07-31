@@ -42,7 +42,7 @@ class APRSClient:
         timestamp = datetime.utcnow().strftime("%d%H%Mz")
 
         # Construct the APRS Object packet using the raw format
-        packet = f"{APRS_CALLSIGN}>APFOGO,TCPIP*:;{object_name}*{timestamp}{lat_str}/{lon_str}:Estado - {estado}, {operacionais} Operacionais, {mterrestres} Meios Terrestre e {maero} Meios Aéreos"
+        packet = f"{APRS_CALLSIGN}>APFOGO,TCPIP*:;{object_name}*{timestamp}{lat_str}/{lon_str}:Estado - {estado}, {operacionais} Operacionais, {mterrestres} Meios Terrestres e {maero} Meios Aéreos"
         
         # Output a preview of the APRS packet
         print(f"APRS Packet Preview: {packet}")
