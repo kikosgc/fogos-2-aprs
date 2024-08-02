@@ -1,4 +1,4 @@
-# fogos-2-aprs
+# fogos-2-aprs 🇵🇹
 <img src="https://i.postimg.cc/MHkJNQTS/fogos2aprs.png" width="50%" height="50%">
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -18,11 +18,11 @@
 
 ## 🚒🔥 Introduction<a id='introduction'></a>
 
-Welcome to **fogos-2-aprs**, a project aimed at gating/forwarding rural fire data to the APRS service. This project collects fire data such as location and status from [ANEPC](https://prociv.gov.pt/en/home/) and forwards it to the APRS network, helping enhance situational awareness and emergency response.
+Welcome to **fogos-2-aprs**, a project aimed at gating/forwarding Portuguese rural fire data to the APRS service. This project collects fire data such as location and status from [ANEPC, Autoridade Nacional de Emergência e Proteção Civil](https://prociv.gov.pt/en/home/) 🇵🇹 and forwards it to the APRS network, helping enhance situational awareness and emergency response.
 
 ## ⚙️ How It Works<a id='how-it-works'></a>
 
-The project utilizes open data from ANEPC to obtain real-time information about rural fires. This information is then formatted and transmitted via the APRS network. APRS is a digital communication protocol used by amateur radio operators to exchange information such as position data, weather reports, and messages.
+The project utilizes open data from ANEPC 🇵🇹 to obtain real-time information about rural fires. This information is then formatted and transmitted via the APRS network. APRS is a digital communication protocol used by amateur radio operators to exchange information such as position data, weather reports, and messages.
 
 ## 🌐 What is APRS?<a id='what-is-aprs'></a>
 
@@ -54,7 +54,7 @@ We welcome contributions from the community! To contribute:
     ```
 3. Push your changes to your forked repository:
     ```bash
-    git push origin main
+    git push origin dev
     ```
 4. Open a pull request on the original repository.
 
