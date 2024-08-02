@@ -8,6 +8,7 @@ Description: Manages APRS connection and packet creation.
 import logging
 import aprslib
 from config import APRS_CALLSIGN, APRS_PASSWORD, APRS_SERVERS
+from symbol_definitions import get_symbol
 from datetime import datetime
 
 class APRSClient:
@@ -41,8 +42,12 @@ class APRSClient:
         # Generate a timestamp in the format DDHHMMz
         timestamp = datetime.utcnow().strftime("%d%H%Mz")
 
+        # Get the symbol table and symbol from the status
+        symbol_table, symbol = get_symbol(estado)
+    
+
         # Construct the APRS Object packet using the raw format
-        packet = f"{APRS_CALLSIGN}>APFOGO,TCPIP*:;{object_name}*{timestamp}{lat_str}/{lon_str}:Estado - {estado}, {operacionais} Operacionais, {mterrestres} Meios Terrestres e {maero} Meios Aéreos"
+        packet = f"{APRS_CALLSIGN}>APFOGO,TCPIP*:;{object_name}*{timestamp}{lat_str}{symbol_table}{lon_str}{symbol}Estado - {estado}, {operacionais} Operacionais, {mterrestres} Meios Terrestres e {maero} Meios Aéreos"
         
         # Output a preview of the APRS packet
         print(f"APRS Packet Preview: {packet}")
