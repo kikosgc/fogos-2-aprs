@@ -15,7 +15,7 @@ def process_and_send_data(client, data):
     for incident in data:
         properties = incident["properties"]
         geometry = incident["geometry"]
-        object_id = str(properties["OBJECTID"])
+        object_id = str(properties["ID_oc"])
         lat = geometry["coordinates"][1]
         lon = geometry["coordinates"][0]
         estado = properties["EstadoOcorrencia"]  # Customize as needed
