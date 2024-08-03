@@ -13,12 +13,13 @@ from datetime import datetime
 
 class APRSClient:
     def __init__(self):
-        self.client = aprslib.IS(APRS_CALLSIGN, passwd=APRS_PASSWORD)
-        self.connected = False
-
+        pass
+        
     def connect(self):
         for server in APRS_SERVERS:
             try:
+                self.client = aprslib.IS(APRS_CALLSIGN, passwd=APRS_PASSWORD)
+                self.connected = False
                 self.client.connect(server['host'], server['port'])
                 self.connected = True
                 logging.info(f"Connected to {server}")
@@ -74,3 +75,18 @@ class APRSClient:
         else:
             suffix = 'E' if coord >= 0 else 'W'
             return f"{degrees:03d}{minutes:05.2f}{suffix}"
+        
+    def send_positionreport(self):
+        if not self.connected:
+            logging.error("Not connected to APRS server.")
+            return
+
+        positionreport = f"{APRS_CALLSIGN}>APFOGO,TCPIP*:=3843.23N/00914.18WoANEPC - Autoridade Nacional de Emergência e Proteção Civil"
+        
+        logging.info(f"Sending Position Report: {positionreport}")
+        try:
+            self.client.sendall(positionreport)
+            logging.info(f"Position Report sent: {positionreport}")
+        except Exception as e:
+            logging.error(f"Failed to send Position Report: {e}")
+

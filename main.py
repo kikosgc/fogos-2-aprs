@@ -28,18 +28,18 @@ def process_and_send_data(client, data):
         except Exception as e:
             logging.error(f"Failed to send packet for {object_id}: {e}")
 
-
 def main():
     client = APRSClient()
-    if not client.connect():
-        logging.error("Failed to connect to any APRS server.")
-        return
 
     while True:
         try:
+            if not client.connect():
+                logging.error("Failed to connect to any APRS server.")
+                return
             data = fetch_fire_data()
             filtered_data = filter_fire_data(data)
             process_and_send_data(client, filtered_data)
+            client.send_positionreport()
         except requests.exceptions.RequestException as e:
             logging.error(f"Error fetching fire data: {e}")
         except Exception as e:
