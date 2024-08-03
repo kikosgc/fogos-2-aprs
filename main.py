@@ -39,7 +39,10 @@ def main():
             data = fetch_fire_data()
             filtered_data = filter_fire_data(data)
             process_and_send_data(client, filtered_data)
+            time.sleep(60) # WAITS 60 seconds BEFORE SENDING POSITION REPORT
             client.send_positionreport()
+            time.sleep(60) # WAITS 60 seconds BEFORE SENDING STATUS
+            client.send_statusreport()
         except requests.exceptions.RequestException as e:
             logging.error(f"Error fetching fire data: {e}")
         except Exception as e:
