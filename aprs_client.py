@@ -81,7 +81,10 @@ class APRSClient:
             logging.error("Not connected to APRS server.")
             return
 
-        positionreport = f"{APRS_CALLSIGN}>APFOGO,TCPIP*:=3843.23N/00914.18WoANEPC - Autoridade Nacional de Emergência e Proteção Civil"
+        positionreport = f"{APRS_CALLSIGN}>APFOGO,TCPIP*:!3843.23N/00914.18WoANEPC - Autoridade Nacional de Emergência e Proteção Civil"
+        
+        # Output a preview of the APRS Position Report packet
+        print(f"APRS Position Report packet Preview: {positionreport}")
         
         logging.info(f"Sending Position Report: {positionreport}")
         try:
@@ -90,3 +93,19 @@ class APRSClient:
         except Exception as e:
             logging.error(f"Failed to send Position Report: {e}")
 
+    def send_statusreport(self):
+        if not self.connected:
+            logging.error("Not connected to APRS server.")
+            return
+
+        statusreport = f"{APRS_CALLSIGN}>APFOGO,TCPIP*,ANEPC:> ► fogos-2-aprs | Powered by F4VSE/CT7AJM"
+        
+        # Output a preview of the APRS Status Report packet
+        print(f"APRS Position Report packet Preview: {statusreport}")
+        
+        logging.info(f"Sending Status: {statusreport}")
+        try:
+            self.client.sendall(statusreport)
+            logging.info(f"Status sent: {statusreport}")
+        except Exception as e:
+            logging.error(f"Failed to send Status: {e}")
