@@ -1,3 +1,10 @@
+"""
+fogos-2-aprs
+Version: 2.1
+Date: 2024-08-04
+Description: Main entry point for the fogos-2-aprs service.
+"""
+
 import time
 import logging
 import requests
