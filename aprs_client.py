@@ -98,7 +98,7 @@ class APRSClient:
             logging.error("Not connected to APRS server.")
             return
 
-        statusreport = f"{APRS_CALLSIGN}>APFOGO,TCPIP*,ANEPC:> ► fogos-2-aprs | www.github.com/kikosgc/fogos-2-aprs | by F4VSE/CT7AJM"
+        statusreport = f"{APRS_CALLSIGN}>APFOGO,TCPIP*,ANEPC:> ► fogos-2-aprs | Powered by F4VSE/CT7AJM"
         
         # Output a preview of the APRS Status Report packet
         print(f"APRS Position Report packet Preview: {statusreport}")

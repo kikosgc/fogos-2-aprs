@@ -6,7 +6,7 @@ from data_processing import fetch_fire_data
 from data_filter import filter_fire_data
 from symbol_definitions import get_symbol
 
-CHECK_INTERVAL = 300  # Interval between checks, in seconds
+CHECK_INTERVAL = 600  # Interval between checks, in seconds
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s: %(message)s')
@@ -39,10 +39,10 @@ def main():
             data = fetch_fire_data()
             filtered_data = filter_fire_data(data)
             process_and_send_data(client, filtered_data)
-            time.sleep(60) # WAITS 60 seconds BEFORE SENDING POSITION REPORT
-            client.send_positionreport()
-            time.sleep(60) # WAITS 60 seconds BEFORE SENDING STATUS
-            client.send_statusreport()
+            time.sleep(30) # WAITS 30 seconds BEFORE SENDING POSITION REPORT
+            client.send_positionreport() # SENDS OUT POSITION REPORT
+            time.sleep(30) # WAITS 30 seconds BEFORE SENDING STATUS
+            client.send_statusreport() # SENDS OUT STATUS
         except requests.exceptions.RequestException as e:
             logging.error(f"Error fetching fire data: {e}")
         except Exception as e:
