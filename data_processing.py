@@ -1,8 +1,15 @@
+"""
+fogos-2-aprs
+Version: 2.0
+Date: 2024-07-29
+Description: Fecht data from source URL.
+"""
+
 import requests
 import time
 import logging
 
-API_URL = "API URL HERE"
+API_URL = "API URL GOES HERE"
 
 def fetch_fire_data():
     max_retries = 5
