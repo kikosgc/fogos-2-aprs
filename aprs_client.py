@@ -1,7 +1,7 @@
 """
 fogos-2-aprs
-Version: 2.1
-Date: 2024-07-31
+Version: 2.1.1
+Date: 2025-08-15
 Description: Manages APRS connection and packet creation.
 """
 
@@ -98,7 +98,7 @@ class APRSClient:
             logging.error("Not connected to APRS server.")
             return
 
-        statusreport = f"{APRS_CALLSIGN}>APFOGO,TCPIP*,ANEPC:> ► fogos-2-aprs | Powered by F4VSE/CT7AJM"
+        statusreport = f"{APRS_CALLSIGN}>APFOGO,TCPIP*,ANEPC:> ► fogos-2-aprs | Project powered and by F4VSE / CT7AJM"
         
         # Output a preview of the APRS Status Report packet
         print(f"APRS Position Report packet Preview: {statusreport}")
